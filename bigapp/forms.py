@@ -1,4 +1,5 @@
 from django import forms
+from .models import CustomUser
 
 class CustomUserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput)

@@ -12,7 +12,7 @@ class CustomUser(AbstractUser):
 class TweetItem(models.Model):
     title = models.CharField(max_length=40)
     body = models.CharField(max_length=140)
-    dt_filed = models.DateTimeField(default=now)
+    dt_posted = models.DateTimeField(default=now)
     posted_by = models.ForeignKey(CustomUser, null=True, on_delete=models.CASCADE)
     # posted_by = models.ForeignKey(CustomUser, null=True, on_delete=models.CASCADE, related_name='posted_by')
 
