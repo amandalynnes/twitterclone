@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'bigapp',
 ]
 
+AUTH_USER_MODEL = 'bigapp.CustomUser'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
