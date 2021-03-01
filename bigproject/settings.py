@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'bigapp',
 ]
 
-AUTH_USER_MODEL = 'bigapp.CustomUser'
+AUTH_USER_MODEL = 'bigapp.TwitterUser'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

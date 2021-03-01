@@ -1,9 +1,9 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser, TweetItem
+from .models import TwitterUser, Tweet
 
 # Register your models here.
 
-admin.site.register(CustomUser, UserAdmin)
+admin.site.register(TwitterUser, UserAdmin)
 
-admin.site.register(TweetItem)
+admin.site.register(Tweet)

@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.utils import timezone
-from .forms import CustomUserForm, LoginForm, TweetItemForm
-from .models import TweetItem, CustomUser
+from .forms import TwitterUserForm, LoginForm, TweetForm
+from .models import Tweet, TwitterUser
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
@@ -9,7 +9,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/accounts/login/')
 def index_view(request):
-    tweets = TweetItem.objects.all().order_by('dt_posted').reverse()
+    tweets = Tweet.objects.all().order_by('dt_posted').reverse()
 
     return render(request, 'index.html', {
         'heading': 'Tweet, Tweet, Tweety Tweet...Tweet!',
@@ -27,7 +27,7 @@ def login_view(request):
             )
             if user:
                 login(request, user)
-            return HTTPResponseRedirect(reverse('home'))
+            return HttpResponseRedirect(reverse('home'))
 
     form = LoginForm()
     return render(request, 'general_form.html', {
