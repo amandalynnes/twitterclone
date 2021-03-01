@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'twitteruser',
+    'tweet',
+    'authentication',
+    'notification',
 ]
 
 AUTH_USER_MODEL = 'twitteruser.TwitterUser'
