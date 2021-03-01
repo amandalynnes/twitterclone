@@ -7,3 +7,4 @@ from .models import TwitterUser, Tweet
 admin.site.register(TwitterUser, UserAdmin)
 
 admin.site.register(Tweet)
+
