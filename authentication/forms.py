@@ -9,4 +9,3 @@ class LoginForm(forms.ModelForm):
     class Meta:
         model = TwitterUser
         fields = ('email', 'password')
- 

@@ -24,9 +24,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_view, name='home'),
     path('accounts/login/', authview.login_view, name='login'),
-    # path('addtweet/', views.add_tweet, name='add_tweet'),
-    # path('tweet/<int:tweet_id>/', views.tweet_view, name='ticket'),
-    # path('tweet/edit/<int:tweet_id>/', views.tweet_edit, name='edit_tweet'),
+    path('addtweet/', tweetview.add_tweet, name='add_tweet'),
+    path('tweet/<int:tweet_id>/', tweetview.tweet_view, name='tweet'),
+    # path('tweet/edit/<int:tweet_id>/', tweetview.tweet_edit, name='edit_tweet'),
     # path('author/edit/<int:author_id>/', views.author_edit, name='edit_author'),
     # path('author/<int:author_id>/', views.author_view, name='author_view'),
 

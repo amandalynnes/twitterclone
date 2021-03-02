@@ -1,0 +1,24 @@
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+</head>
+
+<body>
+    <h1>{{ heading }}</h1>
+   
+    <p></p>
+    <a href="/">|Home|</a> 
+    <a href="/addtweet/">|Post Tweet|</a>
+    <p>----------------------------------------------------------------------------</p>
+
+            <h4>Tweet#: {{ tweet.id }}</h4>
+            <p>Title: {{ tweet.title }}</p>
+            <p>Time Posted: {{ tweet.dt_posted }}</p>
+            <p>Description: {{ tweet.description }}</p>
+            <p>Posted by: {{ tweet.posted_by }}</p>
+            <a href="/tweet/edit/{{ tweet.id }}/">|Change Tweet|</a>
+
+            <p>----------------------------------------------------------------------------</p>   
+        
+</body>
