@@ -9,7 +9,6 @@
    
     <p></p>
     <a href="/">|Home|</a> 
-    <a href="/adduser/">|Add User|</a>
     <a href="/logout/">|Logout|</a>
 
     <p>----------------------------------------------------------------------------</p>
@@ -18,13 +17,13 @@
             <p>Username: {{ user.username }}</p>
             <p>Email: {{ user.email }}</p>
             <a href="/user/edit/{{ user.id }}/">|Edit User Info|</a>
-
+            
             <p>----------------------------------------------------------------------------</p> 
             
             <ul>
                 {% for tweet in tweets %}
                 {% if tweet.posted_by == user %}
-                <h5>Your Tweets:</h5>
+                    <h5>Your {{ tweet.tweet_count }} Tweets:</h5>
                     <li>Title: {{ tweet.title }}</li>
                     <li>Tweet: {{ tweet.body }}</li>
                     <li>Time: {{ tweet.dt_posted }}</li>

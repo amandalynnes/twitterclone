@@ -23,6 +23,7 @@ def index_view(request):
 def user_detail(request, user_id):
     user = TwitterUser.objects.get(id=user_id)
     tweets = Tweet.objects.filter(posted_by=user)
+    tweets = tweets.order_by('dt_posted').reverse()
 
     return render(request, 'user_view.html', {
         'user': user,

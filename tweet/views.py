@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect, reverse
+from django.shortcuts import render, HttpResponseRedirect, reverse, redirect
 from django.utils import timezone
 from twitteruser.forms import TwitterUserForm
 from authentication.forms import LoginForm
@@ -21,7 +21,7 @@ def add_tweet(request):
                 body=data['body'],
                 posted_by=request.user,
             )
-            return HttpResponseRedirect(reverse('tweet', args=([new_tweet.id])))
+            return HttpResponseRedirect(reverse('increment', args=([new_tweet.id])))
     form = TweetForm()
     return render(request,
     'general_form.html', {
@@ -63,3 +63,19 @@ def tweet_edit(request, tweet_id):
         'general_form.html',
         context
         )
+
+
+def increment(request, tweet_id):
+    tweet = Tweet.objects.filter(id=tweet_id).first()
+    tweet.tweet_count += 1
+    tweet.save()
+    # return HttpResponseRedirect('')
+    return redirect('/')
+
+
+
+# def decrement(request, tweet_id):
+#     tweet = Tweet.objects.filter(id=tweet_id).first()
+#     tweet.tweets += 1
+#     tweet.save()
+#     return HttpResponseRedirect('')
