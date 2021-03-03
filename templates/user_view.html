@@ -22,9 +22,9 @@
             <p>----------------------------------------------------------------------------</p> 
             
             <ul>
-                <h5>Your Tweets:</h5>
                 {% for tweet in tweets %}
                 {% if tweet.posted_by == user %}
+                <h5>Your Tweets:</h5>
                     <li>Title: {{ tweet.title }}</li>
                     <li>Tweet: {{ tweet.body }}</li>
                     <li>Time: {{ tweet.dt_posted }}</li>

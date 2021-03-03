@@ -1,3 +1,13 @@
+<!-- 
+Resources:
+my past projects like bugtracker
+
+People:
+Kano Marvel
+
+ -->
+
+
 # 🐦The Ever-So-Slightly-Intimidating Project 🐦
 
 Now that we've started really putting together real applications with Django, it's time to step up basically everything.
