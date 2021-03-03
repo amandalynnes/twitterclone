@@ -23,7 +23,7 @@
             <ul>
                 {% for tweet in tweets %}
                 {% if tweet.posted_by == user %}
-                    <h5>Your {{ tweet.tweet_count }} Tweets:</h5>
+                    <h5>You have {{ tweet.tweet_count }} Tweets</h5>
                     <li>Title: {{ tweet.title }}</li>
                     <li>Tweet: {{ tweet.body }}</li>
                     <li>Time: {{ tweet.dt_posted }}</li>

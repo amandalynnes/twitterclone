@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
+
 @login_required(login_url='/accounts/login/')
 def index_view(request):
     tweets = Tweet.objects.all().order_by('dt_posted').reverse()
@@ -56,5 +57,3 @@ def edit_user(request, user_id):
         'general_form.html',
         context
         )
-
-

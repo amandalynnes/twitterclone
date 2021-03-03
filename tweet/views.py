@@ -23,8 +23,7 @@ def add_tweet(request):
             )
             return HttpResponseRedirect(reverse('increment', args=([new_tweet.id])))
     form = TweetForm()
-    return render(request,
-    'general_form.html', {
+    return render(request, 'general_form.html', {
         'heading': 'Post A Tweet',
         'form': form}
     )
@@ -71,7 +70,6 @@ def increment(request, tweet_id):
     tweet.save()
     # return HttpResponseRedirect('')
     return redirect('/')
-
 
 
 # def decrement(request, tweet_id):

@@ -18,7 +18,7 @@
             <p>Title: {{ tweet.title }}</p>
             <p>Time Posted: {{ tweet.dt_posted }}</p>
             <p>Description: {{ tweet.body }}</p>
-            <p>Posted by: {{ tweet.posted_by }}</p>
+            <p>Posted by: <a href="/user/{{ user.id }}/">{{ tweet.posted_by }}</a></p>
             <a href="/tweet/edit/{{ tweet.id }}/">|Change Tweet|</a>
 
             <p>----------------------------------------------------------------------------</p>   
