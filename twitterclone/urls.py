@@ -28,6 +28,7 @@ urlpatterns = [
     path('tweet/<int:tweet_id>/', tweetview.tweet_view, name='tweet'),
     path('tweet/edit/<int:tweet_id>/', tweetview.tweet_edit, name='edit_tweet'),
     path('signup/', authview.signup_view, name='signup'),
+    path('logout/', authview.logout_view, name='logout'),
     # path('user/edit/<int:user_id>/', views.edit_user, name='edit_user'),
     # path('user/<int:user_id>/', views.user, name='user'),
 

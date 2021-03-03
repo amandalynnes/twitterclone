@@ -19,7 +19,6 @@ def add_tweet(request):
             new_tweet = Tweet.objects.create(
                 title=data['title'],
                 body=data['body'],
-                # dt_posted=data['dt_posted'],
                 posted_by=request.user,
             )
             return HttpResponseRedirect(reverse('tweet', args=([new_tweet.id])))
