@@ -31,7 +31,6 @@ def add_tweet(request):
     )
 
 
-
 def tweet_view(request, tweet_id):
     tweet = Tweet.objects.get(id=tweet_id)
     return render(request, 'tweet_view.html', {
@@ -40,4 +39,27 @@ def tweet_view(request, tweet_id):
     })
 
 
+def tweet_edit(request, tweet_id):
 
+    context = {}
+    tweet = Tweet.objects.get(id=tweet_id)
+
+    if request.method == 'POST':
+        form = TweetForm(request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+            tweet.title = data['title']
+            tweet.body = data['body']
+            tweet.save()
+            return HttpResponseRedirect(reverse('tweet', args=[tweet.id]))
+
+    form = TweetForm(
+        initial={'title': tweet.title, 'body': tweet.body, }
+    )
+    context.update({'form': form})
+    return render(
+        request,
+        'general_form.html',
+        context
+        )

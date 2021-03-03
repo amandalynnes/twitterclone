@@ -20,20 +20,3 @@ def index_view(request):
     })
 
 
-# def login_view(request):
-#     if request.method == 'POST':
-#         form = LoginForm(request.POST)
-#         if form.is_valid():
-#             data = form.cleaned_data
-#             user = authenticate(
-#                 request, email=data['email'], password=data['password'],
-#             )
-#             if user:
-#                 login(request, user)
-#             return HttpResponseRedirect(reverse('home'))
-
-#     form = LoginForm()
-#     return render(request, 'general_form.html', {
-#         'heading': 'Login Here',
-#         'form': form,
-#         })
