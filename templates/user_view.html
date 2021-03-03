@@ -1,0 +1,38 @@
+<head>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+</head>
+
+<body>
+    <h1>{{ heading }}</h1>
+   
+    <p></p>
+    <a href="/">|Home|</a> 
+    <a href="/adduser/">|Add User|</a>
+    <p>----------------------------------------------------------------------------</p>
+
+            <h4>User#: {{ user.id }}</h4>
+            <p>Username: {{ user.username }}</p>
+            <p>Email: {{ user.email }}</p>
+            <a href="/user/edit/{{ user.id }}/">|Edit User Info|</a>
+
+            <p>----------------------------------------------------------------------------</p> 
+            
+            <ul>
+                <h5>Your Tweets:</h5>
+                {% for tweet in tweets %}
+                <!-- {% if tweet.posted_by == author %} -->
+                    <li>Title: {{ tweet.title }}</li>
+                    <li>Tweet: {{ tweet.description }}</li>
+                    <li>Time: {{ tweet.dt_filed }}</li>
+                    <a href="/tweet/edit/{{ tweet.id }}/">Edit Tweet</a>
+    
+                    <p>----------------------------------------------------------------------------</p>
+                    
+                    <!-- {% endif %} -->
+                {% endfor %}
+    
+            </ul>
+        
+</body>

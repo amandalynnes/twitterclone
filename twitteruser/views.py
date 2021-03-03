@@ -20,3 +20,38 @@ def index_view(request):
     })
 
 
+def user_detail(request, user_id):
+    user = TwitterUser.objects.get(id=user_id)
+    tweets = Tweet.objects.filter(posted_by=user)
+
+    return render(request, 'user_view.html', {
+        'user': user,
+        'tweets': tweets,
+        })
+
+
+def edit_user(request, user_id):
+    context = {}
+    user = TwitterUser.objects.get(id=user_id)
+
+    if request.method == 'POST':
+        form = TwitterUserForm(request.POST)
+
+        if form.is_valid():
+            data = form.cleaned_data
+            user.username = data['username']
+            user.email = data['email']
+            user.save()
+            return HttpResponseRedirect(reverse('user_detail', args=[user.id]))
+
+    form = TwitterUserForm(
+        initial={'username': user.username, 'email': user.email, }
+    )
+    context.update({'form': form})
+    return render(
+        request,
+        'general_form.html',
+        context
+        )
+
+
