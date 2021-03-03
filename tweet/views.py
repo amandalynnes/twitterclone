@@ -50,6 +50,7 @@ def tweet_edit(request, tweet_id):
             data = form.cleaned_data
             tweet.title = data['title']
             tweet.body = data['body']
+            tweet.posted_by = request.user
             tweet.save()
             return HttpResponseRedirect(reverse('tweet', args=[tweet.id]))
 

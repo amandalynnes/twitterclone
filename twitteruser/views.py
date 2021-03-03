@@ -45,9 +45,11 @@ def edit_user(request, user_id):
             return HttpResponseRedirect(reverse('user_detail', args=[user.id]))
 
     form = TwitterUserForm(
-        initial={'username': user.username, 'email': user.email, }
+        initial={'username': user.username, 'email': user.email}
     )
-    context.update({'form': form})
+    context.update({
+        'user': user,
+        'form': form})
     return render(
         request,
         'general_form.html',

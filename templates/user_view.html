@@ -10,6 +10,8 @@
     <p></p>
     <a href="/">|Home|</a> 
     <a href="/adduser/">|Add User|</a>
+    <a href="/logout/">|Logout|</a>
+
     <p>----------------------------------------------------------------------------</p>
 
             <h4>User#: {{ user.id }}</h4>
@@ -22,15 +24,15 @@
             <ul>
                 <h5>Your Tweets:</h5>
                 {% for tweet in tweets %}
-                <!-- {% if tweet.posted_by == author %} -->
+                {% if tweet.posted_by == user %}
                     <li>Title: {{ tweet.title }}</li>
-                    <li>Tweet: {{ tweet.description }}</li>
-                    <li>Time: {{ tweet.dt_filed }}</li>
+                    <li>Tweet: {{ tweet.body }}</li>
+                    <li>Time: {{ tweet.dt_posted }}</li>
                     <a href="/tweet/edit/{{ tweet.id }}/">Edit Tweet</a>
     
                     <p>----------------------------------------------------------------------------</p>
                     
-                    <!-- {% endif %} -->
+                    {% endif %}
                 {% endfor %}
     
             </ul>
