@@ -18,7 +18,7 @@
 
         {% for item in tweets %}
             <li><a href="/tweet/{{ item.id }}/">{{ item.title }}</a></li>
-            <li><a href="/user/{{ user.id }}/">{{ item.posted_by }}</a></li>
+            <li><a href="/user/{{ item.posted_by.id }}/">{{ item.posted_by }}</a></li>
             <li>{{ item.dt_posted }}</li>
             <li>{{ item.body }}</li>
             <p>----------------------------------------------------------------------------</p>
