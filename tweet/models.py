@@ -12,7 +12,6 @@ class Tweet(models.Model):
     body = models.CharField(max_length=140)
     dt_posted = models.DateTimeField(default=now)
     posted_by = models.ForeignKey(TwitterUser, null=True, on_delete=models.CASCADE)
-    # posted_by = models.ForeignKey(TwitterUser, null=True, on_delete=models.CASCADE, related_name='posted_by')
 
     def __str__(self):
         return self.title

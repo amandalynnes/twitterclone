@@ -61,19 +61,13 @@ def tweet_edit(request, tweet_id):
         request,
         'general_form.html',
         context
-        )
+    )
 
 
 def increment(request, tweet_id):
     tweet = Tweet.objects.filter(id=tweet_id).first()
     tweet.tweet_count += 1
     tweet.save()
-    # return HttpResponseRedirect('')
     return redirect('/')
 
 
-# def decrement(request, tweet_id):
-#     tweet = Tweet.objects.filter(id=tweet_id).first()
-#     tweet.tweets += 1
-#     tweet.save()
-#     return HttpResponseRedirect('')

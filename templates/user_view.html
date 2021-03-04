@@ -9,13 +9,15 @@
    
     <p></p>
     <a href="/">|Home|</a> 
+    <a href="/addtweet/">|Post Tweet|</a>
     <a href="/logout/">|Logout|</a>
 
     <p>----------------------------------------------------------------------------</p>
 
-            <h4>User#: {{ user.id }}</h4>
-            <p>Username: {{ user.username }}</p>
+            <h4>Username: {{ user.username }}</h4>
             <p>Email: {{ user.email }}</p>
+            <p>UserID: {{ user.id }}</p>
+
             <a href="/user/edit/{{ user.id }}/">|Edit User Info|</a>
             
             <p>----------------------------------------------------------------------------</p> 
@@ -24,9 +26,9 @@
                 {% for tweet in tweets %}
                 {% if tweet.posted_by == user %}
                     <h5>You have {{ tweet.tweet_count }} Tweets</h5>
-                    <li>Title: {{ tweet.title }}</li>
-                    <li>Tweet: {{ tweet.body }}</li>
-                    <li>Time: {{ tweet.dt_posted }}</li>
+                    <p>Title: {{ tweet.title }}</p>
+                    <p>Tweet: {{ tweet.body }}</p>
+                    <p>Time: {{ tweet.dt_posted }}</p>
                     <a href="/tweet/edit/{{ tweet.id }}/">Edit Tweet</a>
     
                     <p>----------------------------------------------------------------------------</p>
