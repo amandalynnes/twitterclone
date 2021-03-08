@@ -1,12 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect, reverse, redirect
-from django.utils import timezone
-from twitteruser.forms import TwitterUserForm
-from authentication.forms import LoginForm
 from tweet.forms import TweetForm
 from tweet.models import Tweet
-from twitteruser.models import TwitterUser
-from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -21,11 +15,11 @@ def add_tweet(request):
                 body=data['body'],
                 posted_by=request.user,
             )
-            return HttpResponseRedirect(reverse('increment', args=([new_tweet.id])))
+            return HttpResponseRedirect(reverse('tweet', args=([new_tweet.id])))
     form = TweetForm()
     return render(request, 'general_form.html', {
         'heading': 'Post A Tweet',
-        'form': form}
+        'form': form,}
     )
 
 
@@ -51,7 +45,7 @@ def tweet_edit(request, tweet_id):
             tweet.body = data['body']
             tweet.posted_by = request.user
             tweet.save()
-            return HttpResponseRedirect(reverse('tweet', args=[tweet.id]))
+            return HttpResponseRedirect(reverse('increment', args=[tweet.id]))
 
     form = TweetForm(
         initial={'title': tweet.title, 'body': tweet.body, }
@@ -64,10 +58,10 @@ def tweet_edit(request, tweet_id):
     )
 
 
-def increment(request, tweet_id):
-    tweet = Tweet.objects.filter(id=tweet_id).first()
-    tweet.tweet_count += 1
-    tweet.save()
-    return redirect('/')
+# def increment(request, tweet_id):
+#     tweet = Tweet.objects.filter(id=tweet_id).first()
+#     tweet.tweet_count += 1
+#     tweet.save()
+#     return redirect('/')
 
 

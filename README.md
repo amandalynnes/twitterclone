@@ -3,7 +3,7 @@ Resources:
 my past projects like bugtracker
 
 People:
-Kano Marvel
+Kano Marvel, Yaseen Al-Salamy
 
  -->
 

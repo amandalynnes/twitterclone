@@ -1,9 +1,9 @@
 from django.shortcuts import render, HttpResponseRedirect, reverse
-from django.utils import timezone
+# from django.utils import timezone
 from twitteruser.forms import TwitterUserForm
 from authentication.forms import LoginForm
-from tweet.forms import TweetForm
-from tweet.models import Tweet
+# from tweet.forms import TweetForm
+# from tweet.models import Tweet
 from twitteruser.models import TwitterUser
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required

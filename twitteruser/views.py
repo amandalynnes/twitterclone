@@ -1,11 +1,7 @@
 from django.shortcuts import render, HttpResponseRedirect, reverse
-from django.utils import timezone
 from twitteruser.forms import TwitterUserForm
-from authentication.forms import LoginForm
-from tweet.forms import TweetForm
 from tweet.models import Tweet
 from twitteruser.models import TwitterUser
-from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 
 # Create your views here.
@@ -25,10 +21,12 @@ def user_detail(request, user_id):
     user = TwitterUser.objects.get(id=user_id)
     tweets = Tweet.objects.filter(posted_by=user)
     tweets = tweets.order_by('dt_posted').reverse()
+    count = tweets.count()
 
     return render(request, 'user_view.html', {
         'user': user,
         'tweets': tweets,
+        'count': count,
         })
 
 
