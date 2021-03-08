@@ -58,10 +58,6 @@ def tweet_edit(request, tweet_id):
     )
 
 
-# def increment(request, tweet_id):
-#     tweet = Tweet.objects.filter(id=tweet_id).first()
-#     tweet.tweet_count += 1
-#     tweet.save()
-#     return redirect('/')
+
 
 

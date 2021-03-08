@@ -68,5 +68,9 @@ def follow_user(request, user_id):
 
 
 def unfollow_user(request, user_id):
-    pass
+    user = TwitterUser.objects.get(id=user_id)
+    follower = TwitterUser.objects.get(id=request.user.id)
+    follower.following.remove(user)
+    follower.save()
+    return HttpResponseRedirect(reverse('user_detail', args=[user.id]))
 
