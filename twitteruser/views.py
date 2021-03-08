@@ -23,6 +23,7 @@ def user_detail(request, user_id):
     tweets = tweets.order_by('dt_posted').reverse()
     count = tweets.count()
 
+
     return render(request, 'user_view.html', {
         'user': user,
         'tweets': tweets,
@@ -55,3 +56,17 @@ def edit_user(request, user_id):
         'general_form.html',
         context
         )
+
+@login_required()
+def follow_user(request, user_id):
+    user = TwitterUser.objects.get(id=user_id)
+    follower = TwitterUser.objects.get(id=request.user.id)
+    follower.following.add(user)
+    follower.save()
+    return HttpResponseRedirect(reverse('user_detail', args=[user.id]))
+
+
+
+def unfollow_user(request, user_id):
+    pass
+

@@ -7,4 +7,7 @@ from django.conf import settings
 
 
 class TwitterUser(AbstractUser):
-    pass
+    following = models.ManyToManyField('self', symmetrical=False, blank=True)
+
+    def __str__(self):
+        return self.username

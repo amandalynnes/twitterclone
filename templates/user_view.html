@@ -18,8 +18,13 @@
             <p>Email: {{ user.email }}</p>
             <p>UserID: {{ user.id }}</p>
             <h5>You have {{ count }} Tweets</h5>
+            <h5>You have {{ user.following.count }} Followers</h5>
+
 
             <a href="/user/edit/{{ user.id }}/">|Edit User Info|</a>
+            <a href="/follow/{{ user.id }}/">|Follow|</a>
+            <a href="/unfollow/{{ user.id }}/">|Unfollow|</a>
+
             
             <p>----------------------------------------------------------------------------</p> 
             

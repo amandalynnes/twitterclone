@@ -31,5 +31,7 @@ urlpatterns = [
     path('logout/', authview.logout_view, name='logout'),
     path('user/edit/<int:user_id>/', views.edit_user, name='edit_user'),
     path('user/<int:user_id>/', views.user_detail, name='user_detail'),
+    path('follow/<int:user_id>/', views.follow_user, name='follow_user'),
+    path('unfollow/<int:user_id>/', views.unfollow_user, name='unfollow_user'),
 
 ]
