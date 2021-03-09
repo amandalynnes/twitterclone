@@ -8,16 +8,16 @@
 <body>
     <h1>{{ heading }}</h1>
     <p></p>
+    <a href="/">|Home|</a>
     <a href="/addtweet/">|Post Tweet|</a>
     <a href="/logout/">|Logout|</a>
-    <a href="/user/{{ user.id }}/">|Profile|</a>
     <a href="/user/{{ user.id }}/">|Profile|</a>
 
 
     <p>-----------------------------------------------------------------------------------</p>
 
     <ul>
-
+        <h3>Notifications: {{ notifications.count }}</h3>
         {% for item in notifications %}
             <!-- <p><a href="/tweet/{{ item.id }}/">{{ item.title }}</a></p>
             <p><a href="/user/{{ item.posted_by.id }}/">{{ item.posted_by }}</a></p> -->

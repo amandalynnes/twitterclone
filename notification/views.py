@@ -11,7 +11,6 @@ def notification(request, user_id):
         notifications.delete()
         return ''
 
-
     return render(request, 'notifications.html', {
         'heading': 'Notify Me!',
         'notifications': notifications,

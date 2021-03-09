@@ -25,13 +25,15 @@ def user_detail(request, user_id):
     user = TwitterUser.objects.get(id=user_id)
     tweets = Tweet.objects.filter(posted_by=user)
     tweets = tweets.order_by('dt_posted').reverse()
-    # follow_tweets = Tweet.objects.filter(following)
+    notifications = Notification.objects.filter(recipient=request.user)
     count = tweets.count()
 
     return render(request, 'user_view.html', {
         'user': user,
         'tweets': tweets,
         'count': count,
+        'notifications': notifications,
+
         })
 
 

@@ -28,7 +28,7 @@ def add_tweet(request):
                     tweet=new_tweet,
                     # read=False,
             )
-           
+
             return HttpResponseRedirect(reverse('tweet', args=([new_tweet.id])))
     form = TweetForm()
     return render(request, 'general_form.html', {
