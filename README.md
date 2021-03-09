@@ -3,6 +3,7 @@ Resources:
 my past projects like bugtracker
 https://dev.to/madhubankhatri/follow-unfollow-system-using-django-simple-code-3785
 https://docs.djangoproject.com/en/3.1/ref/models/querysets/#delete
+https://stackoverflow.com/questions/38447640/django-1-9-anonymoususer-object-is-not-iterable
 
 
 People:

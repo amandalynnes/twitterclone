@@ -8,7 +8,7 @@ from re import search
 # Create your views here.
 
 
-def add_tweet(request): 
+def add_tweet(request):
     if request.method == 'POST':
         form = TweetForm(request.POST)
         if form.is_valid():
