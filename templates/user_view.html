@@ -17,8 +17,11 @@
             <h4>Username: {{ user.username }}</h4>
             <p>Email: {{ user.email }}</p>
             <p>UserID: {{ user.id }}</p>
-            <h5>You have {{ count }} Tweets</h5>
-            <h5>You have {{ user.following.count }} Followers</h5>
+            <h5>{{ count }} tweets</h5>
+            <h5>following {{ user.following.count }} users</h5>
+            <h5>You have {{ user.notifications.count }} Notifications</h5>
+
+
 
 
             <a href="/user/edit/{{ user.id }}/">|Edit User Info|</a>

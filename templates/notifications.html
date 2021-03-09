@@ -10,23 +10,25 @@
     <p></p>
     <a href="/addtweet/">|Post Tweet|</a>
     <a href="/logout/">|Logout|</a>
-    <a href="user/{{ user.id }}/">|Profile|</a>
-    <a href="notification/{{ user.id }}/">|Notifications{{ user.notifications.count }}|</a>
+    <a href="/user/{{ user.id }}/">|Profile|</a>
+    <a href="/user/{{ user.id }}/">|Profile|</a>
 
 
     <p>-----------------------------------------------------------------------------------</p>
 
     <ul>
 
-        {% for item in tweets %}
-            <p><a href="/tweet/{{ item.id }}/">{{ item.title }}</a></p>
-            <p><a href="/user/{{ item.posted_by.id }}/">{{ item.posted_by }}</a></p>
-            <p>{{ item.dt_posted }}</p>
-            <p>{{ item.body }}</p>
+        {% for item in notifications %}
+            <!-- <p><a href="/tweet/{{ item.id }}/">{{ item.title }}</a></p>
+            <p><a href="/user/{{ item.posted_by.id }}/">{{ item.posted_by }}</a></p> -->
+            <p>Recipient: {{ item.recipient }}</p>
+            <p>Tweet: {{ item.tweet }}</p>
             <p>----------------------------------------------------------------------------</p>
         {% endfor %}
 
-
+        
+        
     </ul>
-
+    
 </body>
+{{ delete }}

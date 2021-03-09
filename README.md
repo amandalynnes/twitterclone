@@ -1,9 +1,12 @@
 <!-- 
 Resources:
 my past projects like bugtracker
+https://dev.to/madhubankhatri/follow-unfollow-system-using-django-simple-code-3785
+https://docs.djangoproject.com/en/3.1/ref/models/querysets/#delete
+
 
 People:
-Kano Marvel, Yaseen Al-Salamy, Marcus Chiriboga
+Kano Marvel, Yaseen Al-Salamy, Marcus Chiriboga, Britt Bannister
 
  -->
 

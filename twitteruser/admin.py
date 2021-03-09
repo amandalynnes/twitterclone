@@ -5,4 +5,3 @@ from .models import TwitterUser
 # Register your models here.
 
 admin.site.register(TwitterUser, UserAdmin)
-
