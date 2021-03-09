@@ -38,11 +38,23 @@ def add_tweet(request):
 
 
 def tweet_view(request, tweet_id):
-    tweet = Tweet.objects.get(id=tweet_id)
-    return render(request, 'tweet_view.html', {
-        'heading': 'Tweet',
-        'tweet': tweet
-    })
+    if request.user.is_authenticated:
+        tweet = Tweet.objects.get(id=tweet_id)
+        notifications = Notification.objects.filter(recipient=request.user)
+
+        return render(request, 'tweet_view.html', {
+            'heading': 'Tweet',
+            'tweet': tweet,
+            'notifications': notifications,
+        })
+
+    else:
+        tweet = Tweet.objects.get(id=tweet_id)
+
+        return render(request, 'tweet_view.html', {
+            'heading': 'Tweet',
+            'tweet': tweet,
+        })
 
 
 def tweet_edit(request, tweet_id):

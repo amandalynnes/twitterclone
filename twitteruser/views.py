@@ -22,19 +22,31 @@ def index_view(request):
 
 
 def user_detail(request, user_id):
-    user = TwitterUser.objects.get(id=user_id)
-    tweets = Tweet.objects.filter(posted_by=user)
-    tweets = tweets.order_by('dt_posted').reverse()
-    notifications = Notification.objects.filter(recipient=request.user)
-    count = tweets.count()
+    if request.user.is_authenticated:
+        user = TwitterUser.objects.get(id=user_id)
+        tweets = Tweet.objects.filter(posted_by=user)
+        tweets = tweets.order_by('dt_posted').reverse()
+        notifications = Notification.objects.filter(recipient=request.user)
+        count = tweets.count()
+        return render(request, 'user_view.html', {
+            'user': user,
+            'tweets': tweets,
+            'count': count,
+            'notifications': notifications,
 
-    return render(request, 'user_view.html', {
-        'user': user,
-        'tweets': tweets,
-        'count': count,
-        'notifications': notifications,
+            })
 
-        })
+    else:
+        user = TwitterUser.objects.get(id=user_id)
+        tweets = Tweet.objects.filter(posted_by=user)
+        tweets = tweets.order_by('dt_posted').reverse()
+        count = tweets.count()
+
+        return render(request, 'user_view.html', {
+            'user': user,
+            'tweets': tweets,
+            'count': count,
+            })
 
 
 def edit_user(request, user_id):
